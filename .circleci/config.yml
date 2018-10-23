@@ -7,7 +7,7 @@ jobs:
       - checkout
       - run:
           name: Install aws cli
-          command: apt-get update -y && apt-get install python-pip -y && pip install awscli
+          command: apt-get update -y && apt-get install python-pip curl -y && pip install awscli
       - run:
           name: configure aws cli
           command: aws configure set aws_access_key_id $ACCESS_KEY && aws configure set aws_secret_access_key $SECRET_KEY
@@ -19,4 +19,4 @@ jobs:
           command: ls -alh
       - run: 
           name: copy file to artifactory
-          command: curl -uadmin:admin -T ./* "http://art1.xrepeater.com/zip-local/"
+          command: curl -uadmin:admin -T ./*.tar.gz "http://art1.xrepeater.com/zip-local/"
