@@ -19,4 +19,4 @@ jobs:
           command: ls -alh
       - run: 
           name: copy file to artifactory
-          command: curl -uadmin:password -T ./*.tar.gz "http://art1.xrepeater.com/zip-local/"
+          command: for file in $(ls *.tar.gz); do curl -uadmin:$ART_CERD -T $file "http://art1.xrepeater.com/zip-local/${file}"; done
