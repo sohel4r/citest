@@ -19,4 +19,4 @@ jobs:
           command: ls -alh
       - run: 
           name: copy file to artifactory
-          command: curl -uadmin:admin -T ./*.tar.gz "http://art1.xrepeater.com/zip-local/"
+          command: curl -uadmin:password -T ./*.tar.gz "http://art1.xrepeater.com/zip-local/"
