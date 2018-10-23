@@ -14,3 +14,9 @@ jobs:
       - run:
           name: List all s3 buckets
           command: aws s3 ls
+      - run:
+          name: List all files of current directory
+          command: ls -alh
+      - run: 
+          name: copy file to artifactory
+          command: curl -uadmin:admin -T ./* "http://art1.xrepeater.com/zip-local/"
