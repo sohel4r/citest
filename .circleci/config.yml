@@ -6,8 +6,11 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Greeting
-          command: echo Hello, world.
+          name: Install aws cli
+          command: apt-get update -y && apt-get install python-pip && pip install awscli
       - run:
-          name: Print the Current Time
-          command: date
+          name: configure aws cli
+          command: aws configure set aws_access_key_id $ACCESS_KEY aws_secret_access_key $SECRET_KEY
+      - run:
+          name: List all s3 buckets
+          command: aws s3 ls
