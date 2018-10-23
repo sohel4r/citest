@@ -10,7 +10,7 @@ jobs:
           command: apt-get update -y && apt-get install python-pip -y && pip install awscli
       - run:
           name: configure aws cli
-          command: aws configure set aws_access_key_id $ACCESS_KEY aws_secret_access_key $SECRET_KEY
+          command: aws configure set aws_access_key_id $ACCESS_KEY && aws configure set aws_secret_access_key $SECRET_KEY
       - run:
           name: List all s3 buckets
           command: aws s3 ls
