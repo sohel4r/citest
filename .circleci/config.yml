@@ -20,3 +20,13 @@ jobs:
       - run: 
           name: copy file to artifactory
           command: for file in $(ls *.tar.gz); do curl -uadmin:$ART_CERD -T $file "http://art1.xrepeater.com/zip-local/${file}"; done
+
+      - run: 
+          name: Upload to soma artifactory
+          command: for file in $(ls *.tar.gz); do curl -uadmin:$ART_SOMA -T $file "http://jfrog-re01-useast1-elb-1776513342.us-east-1.elb.amazonaws.com/test-local/${file}"; done
+      - run: 
+          name: Tigger jenkins build
+          command: curl -u admin:111b26d2fdf632fde4ecc932c76d71cd48  "http://jenkins.xrepeater.com/job/art-pipeline/build?token=test"
+      - run: 
+          name: Tigger soma build
+          command: curl -u admin:111b26d2fdf632fde4ecc932c76d71cd48  "http://jenkins.xrepeater.com/job/art-dis-test/build?token=test"
