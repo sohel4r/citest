@@ -7,7 +7,7 @@ jobs:
       - checkout
       - run:
           name: Install aws cli
-          command: pwd && apt-get update -y && apt-get install python-pip libpq-dev python-opengl libglfw3 libglfw3-dev curl -y && pip install awscli
+          command: apt-get update -y && apt-get install python-pip libpq-dev python-opengl libglfw3 libglfw3-dev curl -y && pip install awscli
       - run:
           name: configure aws cli
           command: aws configure set aws_access_key_id $ACCESS_KEY && aws configure set aws_secret_access_key $SECRET_KEY
@@ -22,7 +22,7 @@ jobs:
           command: pip install -r requirements.txt
       - run: 
           name: copy file to artifactory
-          command: tar -czvf ansible.tar.gz *.tar.gz && python script.py
+          command: tar -czvf ansible.tar.gz *.tar.gz && ls && python script.py
 
       # - run: 
       #     name: Upload to soma artifactory
