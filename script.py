@@ -37,8 +37,8 @@ def get_sha1(fin):
 
 
 def art_upload(fin, base_file_name=None):
-	if base_file_name is None:
-    	base_file_name = os.path.basename(fin)
+    if base_file_name is None:
+        base_file_name = os.path.basename(fin)
     md5hash = get_md5(fin)
     sha1hash = get_sha1(fin)
     headers = {"X-Checksum-Md5": md5hash, "X-Checksum-Sha1": sha1hash}
