@@ -2,3 +2,5 @@ pyyaml
 invoke
 pg
 requests
+PyOpenGL
+Pillow
