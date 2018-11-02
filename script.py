@@ -46,15 +46,9 @@ def art_upload(fin, base_file_name=None):
     return r
 
 branch_name = run("git branch | grep '*' | awk '{print $2}'", hide='both')
-if snapshot:
-    pipeline_name = '{}-{}'.format(
-        branch_name.stdout.strip(),
-        datetime.datetime.now().strftime('%Y%m%d-%H%M%S')
-    )
-else:
-    origin_url = run("git remote show origin | grep Fetch | awk '{print $3}'",
-                     hide='both')
-    pipeline_name = inflect_pipeline(origin_url.stdout, branch_name.stdout)
+
+origin_url = run("git remote show origin | grep Fetch | awk '{print $3}'",hide='both')
+pipeline_name = inflect_pipeline(origin_url.stdout, branch_name.stdout)
 pipeline_name = pipeline_name.strip()
 
 info('Publishing built artifacts to s3 with name "%s"' % pipeline_name)
