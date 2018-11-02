@@ -11,7 +11,7 @@ from requests.auth import HTTPBasicAuth
 from invoke import run, task
 import yaml
 
-from pg import error, info, BUILD_PATH, ROOT_DIR, bold, pbold, warn
+# from pg import error, info, BUILD_PATH, ROOT_DIR, bold, pbold, warn
 # from pg import frigga
 # from pg.util import find_paths, inflect_pipeline, put_s3_file, put_s3_obj_binary, yes_no_prompt, run_cmd, indent
 
@@ -45,6 +45,6 @@ def art_upload(fin, base_file_name=None):
     r = requests.put("{0}/{1}/{2}".format(artifactory_url, artifactory_repo, base_file_name),auth=(username,password), headers=headers, verify=False, data=open(fin, 'rb'))
     return r
 
-branch_name = run("git branch | grep '*' | awk '{print $2}'", hide='both')
+#branch_name = run("git branch | grep '*' | awk '{print $2}'", hide='both')
 
-art_upload(os.path.join(BUILD_PATH, 'ansible.tar.gz'), '{}-{}.tar.gz'.format(branch_name, '2'))
+art_upload(os.path.join(BUILD_PATH, 'ansible.tar.gz'), '{}-{}.tar.gz'.format('ansible', '2'))
