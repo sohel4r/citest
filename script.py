@@ -47,11 +47,7 @@ def art_upload(fin, base_file_name=None):
 
 branch_name = run("git branch | grep '*' | awk '{print $2}'", hide='both')
 
-origin_url = run("git remote show origin | grep Fetch | awk '{print $3}'",hide='both')
-pipeline_name = inflect_pipeline(origin_url.stdout, branch_name.stdout)
-pipeline_name = pipeline_name.strip()
-
 info('Publishing built artifacts to s3 with name "%s"' % pipeline_name)
 
 
-art_upload(os.path.join(BUILD_PATH, 'ansible.tar.gz'), '{}-{}.tar.gz'.format(pipeline_name, provisioning_sha))
+art_upload(os.path.join(BUILD_PATH, 'ansible.tar.gz'), '{}-{}.tar.gz'.format(branch_name, '2'))
