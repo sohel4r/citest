@@ -47,7 +47,4 @@ def art_upload(fin, base_file_name=None):
 
 branch_name = run("git branch | grep '*' | awk '{print $2}'", hide='both')
 
-info('Publishing built artifacts to s3 with name "%s"' % pipeline_name)
-
-
 art_upload(os.path.join(BUILD_PATH, 'ansible.tar.gz'), '{}-{}.tar.gz'.format(branch_name, '2'))
