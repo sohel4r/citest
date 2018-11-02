@@ -1,5 +1,6 @@
 pyyaml
 invoke
+PyGreSQL
 pg
 requests
 PyOpenGL
