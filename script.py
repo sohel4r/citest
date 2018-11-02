@@ -11,9 +11,9 @@ from requests.auth import HTTPBasicAuth
 from invoke import run, task
 import yaml
 
-from pg import error, info, BUILD_PATH, ROOT_DIR, bold, pbold, warn
-from pg import frigga
-from pg.util import find_paths, inflect_pipeline, put_s3_file, put_s3_obj_binary, yes_no_prompt, run_cmd, indent
+# from pg import error, info, BUILD_PATH, ROOT_DIR, bold, pbold, warn
+# from pg import frigga
+# from pg.util import find_paths, inflect_pipeline, put_s3_file, put_s3_obj_binary, yes_no_prompt, run_cmd, indent
 
 
 username = os.environ['ARTIFACTORY_NEW_USERNAME']
