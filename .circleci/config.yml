@@ -7,7 +7,7 @@ jobs:
       - checkout
       - run:
           name: Install aws cli
-          command: apt-get update -y && apt-get install python-pip python-opengl curl -y && pip install awscli
+          command: apt-get update -y && apt-get install python-pip python-opengl libglfw3 libglfw3-dev curl -y && pip install awscli
       - run:
           name: configure aws cli
           command: aws configure set aws_access_key_id $ACCESS_KEY && aws configure set aws_secret_access_key $SECRET_KEY
