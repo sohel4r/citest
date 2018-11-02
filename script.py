@@ -45,11 +45,6 @@ def art_upload(fin, base_file_name=None):
     r = requests.put("{0}/{1}/{2}".format(artifactory_url, artifactory_repo, base_file_name),auth=(username,password), headers=headers, verify=False, data=open(fin, 'rb'))
     return r
 
-try:
-    import boto3
-except ImportError:
-    sys.exit('publish requires installing boto first')
-
 branch_name = run("git branch | grep '*' | awk '{print $2}'", hide='both')
 if snapshot:
     pipeline_name = '{}-{}'.format(
