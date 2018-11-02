@@ -22,7 +22,7 @@ jobs:
           command: pip install -r requirements.txt
       - run: 
           name: copy file to artifactory
-          command: tar -czvf ansible.tar.gz *.tar.gz && ls && python script.py
+          command: tar -czvf ansible.tar.gz *.tar.gz && ls && pwd && python script.py
 
       # - run: 
       #     name: Upload to soma artifactory
