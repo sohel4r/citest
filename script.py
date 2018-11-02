@@ -46,5 +46,5 @@ def art_upload(fin, base_file_name=None):
     return r
 
 #branch_name = run("git branch | grep '*' | awk '{print $2}'", hide='both')
-
+BUILD_PATH = os.environ['CIRCLE_WORKING_DIRECTORY']
 art_upload(os.path.join(BUILD_PATH, 'ansible.tar.gz'), '{}-{}.tar.gz'.format('ansible', '2'))
